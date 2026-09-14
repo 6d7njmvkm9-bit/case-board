@@ -14,19 +14,22 @@
 export function calculatePropertyFee(amountWan: number): number {
   const amount = amountWan * 10000;
   if (amount <= 10000) return 50;
+  // 速算式:受理费 = 标的额 × 本档费率 + 速算常数。
+  // 常数 = 前面各档累计费 − 本档下限 × 本档费率;只有第 1 档为负(−200),
+  // 第 2~9 档为正。例:15 万 = 150000 × 2% + 300 = 3300(= 2300 + 5 万 × 2%)。
   const brackets = [
-    { limit: 100000, rate: 0.025, subtract: 200 },
-    { limit: 200000, rate: 0.02, subtract: 300 },
-    { limit: 500000, rate: 0.015, subtract: 1300 },
-    { limit: 1000000, rate: 0.01, subtract: 3800 },
-    { limit: 2000000, rate: 0.009, subtract: 4800 },
-    { limit: 5000000, rate: 0.008, subtract: 6800 },
-    { limit: 10000000, rate: 0.007, subtract: 11800 },
-    { limit: 20000000, rate: 0.006, subtract: 21800 },
-    { limit: Infinity, rate: 0.005, subtract: 41800 },
+    { limit: 100000, rate: 0.025, quick: -200 },
+    { limit: 200000, rate: 0.02, quick: 300 },
+    { limit: 500000, rate: 0.015, quick: 1300 },
+    { limit: 1000000, rate: 0.01, quick: 3800 },
+    { limit: 2000000, rate: 0.009, quick: 4800 },
+    { limit: 5000000, rate: 0.008, quick: 6800 },
+    { limit: 10000000, rate: 0.007, quick: 11800 },
+    { limit: 20000000, rate: 0.006, quick: 21800 },
+    { limit: Infinity, rate: 0.005, quick: 41800 },
   ];
   for (const b of brackets) {
-    if (amount <= b.limit) return Math.round(amount * b.rate - b.subtract);
+    if (amount <= b.limit) return Math.round(amount * b.rate + b.quick);
   }
   return 0; // 永远不会到这里
 }
