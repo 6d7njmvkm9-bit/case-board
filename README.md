@@ -3,6 +3,10 @@
 > 律师个人案件可视化看板,本地优先,不改动你的源文件。
 > 把散落在文件夹里的诉讼材料,一眼看清「这个案件现在到哪一步」。
 
+> [!IMPORTANT]
+> **新一代「案件看板 New」(0.5)已发布**:面向个人律师和小团队的本地优先 AI 办案工作台(法律 AI 工作台),支持 macOS 与 Windows,安装包免费,原始文件只读。
+> 下载、安装说明与视频教程:**[lawtools.top](https://lawtools.top/?utm_source=github&utm_medium=readme&utm_campaign=caseboard)**。本仓库是 0.4.x 的开源源码,0.5 是推倒重写的新软件,不在本仓库。
+
 [![License](https://img.shields.io/badge/license-PolyForm%20Noncommercial%201.0.0-orange.svg)](./LICENSE)
 [![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Windows-lightgrey.svg)](#安装)
 [![Stack](https://img.shields.io/badge/stack-Tauri%202%20%2B%20React%2019-1abc9c.svg)](#技术栈)
@@ -114,7 +118,7 @@ App 内右下「💬 反馈」按钮 → 自动收集脱敏诊断信息(版本 /
 
 ## 安装
 
-从 [lawtools.top](https://lawtools.top) 下载最新安装包。
+[lawtools.top](https://lawtools.top) 现在提供的是新一代「案件看板 New」(0.5)安装包,与老版并排安装、数据互不影响;0.4 安装包已停止分发。以下是 0.4 老版的安装说明,留作参考。
 
 macOS 包暂未做 Developer ID 公证。安装后若系统提示“已损坏”或无法验证,按 dmg 内《请先阅读》执行:
 
@@ -207,8 +211,8 @@ caseboard/
 
 ## 状态
 
-- ✅ 当前公开版 v0.4.15，提供 macOS Apple Silicon、macOS Intel 与 Windows x64 安装包（下载见 [lawtools.top](https://lawtools.top)）
-- 🔧 0.4.x 是持续维护的最终公开大版：三端同版发布安全修复、Bug 修复与适合共享的优化，欢迎在此基线上提 PR 或继续定制
+- ✅ 0.4.x 是最终开源大版，源码最后同步到 v0.4.18（见 Releases）；欢迎在此基线上提 PR 或继续定制
+- 🆕 新一代「案件看板 New」(0.5)为闭源免费软件，下载见 [lawtools.top](https://lawtools.top)
 - 🐢 个人项目节奏:issue / PR 会看,但不承诺响应时限;Linux 适配欢迎 PR
 
 ## 反馈 & 贡献
